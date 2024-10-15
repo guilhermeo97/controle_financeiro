@@ -6,6 +6,6 @@ export interface NewValue {
 }
 
 export enum TypeValue {
-    "Despesa",
-    "Receita"
+    Despesa = "Despesa",
+    Receita = "Receita"
 }
