@@ -11,12 +11,12 @@ export const NewItem = () => {
     const contexto = useContext(FormContext);
     if(!contexto) return null;
 
-    const { contextValue, setContextValue } = contexto;
+    const { addNewValue } = contexto;
 
     const [description, setDescription] = useState('');
 
     const [typeSelecionado, setTypeSelecionado] = useState<TypeValue>(TypeValue.Receita);
-    const [listaDeType, setListTypes] = useState<TypeValue[]>([]);
+    //const [listaDeType, setListTypes] = useState<TypeValue[]>([]);
     const [value, setValue] = useState(0);
     const [list, setList] = useState<NewValue[]>(DataBase)
 
@@ -26,7 +26,7 @@ export const NewItem = () => {
         // Verifica se os campos estão preenchidos
         if (description && value) {
           // Cria um novo objeto com os dados do formulário
-            const novoValor = {
+            const novoValor: NewValue = {
                 id: list.length + 1,
                 description: description.trim(),
                 type: typeSelecionado,
@@ -35,7 +35,7 @@ export const NewItem = () => {
     
           // Atualiza a lista de usuários adicionando o novo
           setList([...list, novoValor]);
-          setContextValue([...list, novoValor]);
+          addNewValue(novoValor);
     
           // Limpa os campos do formulário após a submissão
           setDescription('');

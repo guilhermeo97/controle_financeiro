@@ -10,11 +10,10 @@ import { useContext, useState } from "react"
 export const CardCount = () => {
 
     const contexto = useContext(FormContext);
-    const [value, setValue] = useState<NewValue[]>(DataBase)
     
     if (!contexto) return null;
 
-    const { contextValue, setContextValue } = contexto;
+    const { contextValue } = contexto;
     
 
     return(
