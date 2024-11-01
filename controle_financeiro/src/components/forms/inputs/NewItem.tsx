@@ -1,11 +1,17 @@
 "use client"
 
+import { FormContext } from "@/contexts/Contexto";
 import { DataBase } from "@/data/DataBase";
 import { NewValue, TypeValue } from "@/types/NewItem";
-import { ReactHTMLElement, useState } from "react"
+import { ReactHTMLElement, useContext, useState } from "react"
 
 
 export const NewItem = () => {
+
+    const contexto = useContext(FormContext);
+    if(!contexto) return null;
+
+    const { contextValue, setContextValue } = contexto;
 
     const [description, setDescription] = useState('');
 
@@ -29,11 +35,12 @@ export const NewItem = () => {
     
           // Atualiza a lista de usuários adicionando o novo
           setList([...list, novoValor]);
+          setContextValue([...list, novoValor]);
     
           // Limpa os campos do formulário após a submissão
           setDescription('');
           setValue(0);
-          console.log(novoValor)
+          console.log("Lista depois da atualização:", [...list, novoValor]);
         }
       };
         
