@@ -5,9 +5,8 @@ import { DataBase } from "@/data/DataBase";
 
 export default function Home() {
   return (
-    <FormProvider initialValue={DataBase} >
-      <NewItem/>
-      <CardCount/>
-    </FormProvider>
+    <>
+      <h1>Bem-Vindo!</h1>
+    </>
   );
 }
