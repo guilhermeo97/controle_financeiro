@@ -19,12 +19,16 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: List files
+        run: ls -R
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Altere para a versão do Node.js usada no seu projeto
+          node-version: '18' # Certifique-se que a versão é compatível
       - name: Install dependencies
-        run: npm install --omit=dev
+        run: |
+          cd ./controle_financeiro
+          npm install --omit=dev
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -32,21 +36,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GRAY_BUSH_01CAE780F }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "./controle_financeiro" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "dist" # Ajuste conforme o diretório de build do seu app
-          ###### End of Repository/Build Configurations ######
-
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GRAY_BUSH_01CAE780F }}
-          action: "close"
+          output_location: "build" # Diretório gerado pelo build
