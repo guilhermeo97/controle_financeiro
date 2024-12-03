@@ -36,7 +36,7 @@ export const FormProvider: React.FC<FormProviderProps> = ({
         "http://localhost:8080/finance",
         {
           description: newValue.description,
-          ocurenceDate: newValue.ocurrenceDate.toISOString().split("T")[0],
+          ocurenceDate: newValue.ocurenceDate.toISOString().split("T")[0],
           typeValue: newValue.typeValue,
           money: newValue.money,
         },

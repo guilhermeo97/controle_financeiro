@@ -9,7 +9,6 @@ export const CardCount = () => {
   if (!contexto) return null;
 
   const { contextValue } = contexto;
-
   return (
     <div className="container mx-auto w-1/3 mt-3 rounded-md shadow-md">
       {contextValue.map((value) => (
@@ -20,6 +19,10 @@ export const CardCount = () => {
           <p>
             <strong>Descrição: </strong>
             {value.description}
+          </p>
+          <p>
+            <strong>Data: </strong>
+            {new Date(value.ocurenceDate).toLocaleDateString("pt-br")}
           </p>
           <p>
             <strong>Valor: </strong>

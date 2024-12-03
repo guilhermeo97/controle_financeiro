@@ -18,7 +18,7 @@ export const NewItem = () => {
   const [typeSelecionado, setTypeSelecionado] = useState<TypeValue>(
     TypeValue.RECEITA
   );
-  const [occurenceDate, setOcurrenceDate] = useState<string>(dateNow);
+  const [ocurenceDate, setOcurenceDate] = useState<string>(dateNow);
   const [moeny, setValue] = useState(0);
 
   // Estado da lista
@@ -37,11 +37,11 @@ export const NewItem = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    if (description && moeny && occurenceDate) {
+    if (description && moeny && ocurenceDate) {
       const novoValor: NewValue = {
         id: list.length + 1, // Gera um ID incremental
         description: description.trim(),
-        ocurrenceDate: new Date(occurenceDate), // Converte para Date
+        ocurenceDate: new Date(ocurenceDate), // Converte para Date
         typeValue: typeSelecionado,
         money: moeny,
       };
@@ -52,7 +52,7 @@ export const NewItem = () => {
       // Limpa os campos do formulário
       setDescription("");
       setValue(0);
-      setOcurrenceDate(dateNow);
+      setOcurenceDate(dateNow);
     }
   };
 
@@ -76,8 +76,8 @@ export const NewItem = () => {
           <input
             className="border border-slate-900 rounded-md px-2 py-1"
             type="date"
-            value={occurenceDate}
-            onChange={(e) => setOcurrenceDate(e.target.value)}
+            value={ocurenceDate}
+            onChange={(e) => setOcurenceDate(e.target.value)}
           />
         </div>
         <div className="flex flex-col my-2">

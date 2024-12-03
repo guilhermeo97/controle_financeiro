@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 export interface NewValue {
   id?: number;
   description: string;
-  ocurrenceDate: Date;
+  ocurenceDate: Date;
   typeValue: TypeValue;
   money: number;
 }

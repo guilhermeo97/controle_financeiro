@@ -14,6 +14,7 @@ export default function Home() {
       try {
         const data = await DataBase();
         setInitialValue(data);
+        console.log(data);
       } catch (error) {
         console.error("Erro ao carregar os dados iniciais:", error);
       } finally {

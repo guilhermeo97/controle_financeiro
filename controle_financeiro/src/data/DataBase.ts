@@ -13,7 +13,7 @@ export const DataBase = async (): Promise<NewValue[] | []> => {
       return {
         id: item.id,
         description: item.description,
-        ocurrenceDate: item.ocurrenceDate,
+        ocurenceDate: item.ocurenceDate,
         typeValue: item.typeValue,
         money: item.money,
       };
