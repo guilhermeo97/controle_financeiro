@@ -38,4 +38,4 @@ jobs:
           action: "upload"
           app_location: "./controle_financeiro" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "build" # Diretório gerado pelo build
+          output_location: "out" # Diretório gerado pelo build
