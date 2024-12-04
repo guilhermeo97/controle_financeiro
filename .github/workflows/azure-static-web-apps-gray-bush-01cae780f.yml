@@ -24,7 +24,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Certifique-se que a versão é compatível
+          node-version: '21' # Certifique-se que a versão é compatível
       - name: Install dependencies
         run: |
           cd ./controle_financeiro
