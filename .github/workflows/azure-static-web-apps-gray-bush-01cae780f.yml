@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ./controle_financeiro
-          npm install --omit=dev
+          npm install --production
       - name: Build And Deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
