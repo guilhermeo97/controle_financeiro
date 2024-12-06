@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/src/app/page.tsx",
+      "statusCode": 200
+    }
+  ]
+}
